@@ -17,7 +17,7 @@ function* checkProductStock({ payload }: CheckProductStockRequest) {
     return state.cart.items.find(item => item.product.id === product.id)?.quantity ?? 0;
   }); 
 
-  const availableSotckResponse: AxiosReponse<IStockResponse> = yield call(api.get. `stock/${product.id}`);
+  const availableSotckResponse: AxiosReponse<IStockResponse> = yield call(api.get, `stock/${product.id}`);
 
   if(availableSotckResponse.data.quantity > currentQuantity) {
     yield put(addProductToCartSuccess(product));
